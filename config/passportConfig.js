@@ -54,7 +54,7 @@ passport.use(new FacebookStrategy({
     clientID: process.env.FB_APP_ID,
     clientSecret: process.env.FB_APP_SECRET,
     callbackURL: process.env.BASE_URL + '/auth/callback/facebook',
-    profileFields: ['id', 'email', 'displayName', 'photos'],
+    profileFields: ['id', 'email', 'displayName', 'picture.type(large)'],
     enableProof: true
 }, function(accessToken, refreshToken, profile, callback){
     // See if FB gave us an email to identify the user with
@@ -85,6 +85,7 @@ passport.use(new FacebookStrategy({
                 defaults: {
                     facebookToken: accessToken,
                     email: facebookEmail,
+                    username: usernameArry[0] + usernameArry[1],
                     first_name: usernameArry[0],
                     last_name: usernameArry[usernameArry.length - 1],
                     admin: false,
