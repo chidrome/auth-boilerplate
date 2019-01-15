@@ -29,6 +29,12 @@ module.exports = {
       bio: {
         type: Sequelize.TEXT
       },
+      facebookID: {
+        type: Sequelize.STRING
+      },
+      facebookToken: {
+        type: Sequelize.STRING
+      },
       admin: {
         type: Sequelize.BOOLEAN
       },
